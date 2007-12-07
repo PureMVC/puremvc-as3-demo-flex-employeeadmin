@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ PureMVC AS3 Demo - Flex Employee Admin 
+ Copyright (c) 2007 Clifford Hall <clifford.hall@puremvc.org>
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:Panel title="Users"	status="{users.length}"
+		  xmlns:mx="http://www.adobe.com/2006/mxml">
+
+	<!-- Events dispatched by this View Component -->
+	<mx:Metadata>
+		[Event('new')]
+		[Event('delete')]
+		[Event('select')]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.controls.dataGridClasses.DataGridColumn;
+			import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
+			
+			public static const NEW:String 		= 'new';
+			public static const DELETE:String 	= 'delete';
+			public static const SELECT:String 	= 'select';
+			
+			[Bindable] public var selectedUser:UserVO;
+			[Bindable] public var users:ArrayCollection;
+			[Bindable] private var armed:Boolean = false; // delete confirmation
+			
+			// send the named event and reset armed state 
+			private function sendEvent( eventName:String ):void
+			{
+				armed=false;
+				dispatchEvent( new Event( eventName, true ) );
+			}
+			
+			// remove selection in the user list and reset armed state
+			public function deSelect():void
+			{
+				armed=false;
+				userDataGrid.selectedIndex = -1;
+			}
+			
+			// display department in datagrid
+			private function deptLabel ( item:Object, dc:DataGridColumn ):String
+			{
+				return item.department.value;
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<!-- The selectedUser property is bound to Selection in the data grid  -->
+	<mx:Binding source="userDataGrid.selectedItem as UserVO" destination="selectedUser"/>
+	
+	<!-- The User List -->
+	<mx:DataGrid id="userDataGrid" dataProvider="{ users }" width="100%" 
+		click="if (userDataGrid.selectedIndex != -1) sendEvent( SELECT )">
+		<mx:columns>
+			<mx:DataGridColumn width="75" dataField="username" headerText="Username"/>
+			<mx:DataGridColumn width="75" dataField="fname" headerText="First Name"/>
+			<mx:DataGridColumn width="75" dataField="lname" headerText="Last Name"/>
+			<mx:DataGridColumn dataField="email" headerText="Email"/>
+			<mx:DataGridColumn dataField="department" labelFunction="deptLabel" headerText="Department"/>
+		</mx:columns>
+	</mx:DataGrid>
+	
+	<!-- User Maintenance Controls -->
+	<mx:ControlBar horizontalAlign="right">
+		
+		<!-- Delete Confirmation -->
+		<mx:HBox id="deleteArmed" visible="{armed}" verticalAlign="middle">
+			<mx:Label text="Are you sure?"/>
+			<mx:LinkBar itemClick="(event.item == 'Yes')?sendEvent( DELETE ):armed=false">
+				<mx:dataProvider>
+					<mx:String>Yes</mx:String>
+					<mx:String>No</mx:String>
+				</mx:dataProvider>
+			</mx:LinkBar>
+		</mx:HBox>
+		
+		<!-- Delete User Button -->
+		<mx:Button label="Delete" click="armed=true" enabled="{ userDataGrid.selectedIndex != -1 }" />
+	
+		<!-- New User Button -->
+		<mx:Button label="New" click="deSelect();sendEvent( NEW )" />
+		
+	</mx:ControlBar>
+	
+</mx:Panel>

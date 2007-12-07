@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ PureMVC AS3 Demo - Flex Employee Admin 
+ Copyright (c) 2007 Clifford Hall <clifford.hall@puremvc.org>
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:Panel title="User Profile" status="{user.username}"
+	xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<!-- Events dispatched by this View Component -->
+	<mx:Metadata>
+		[Event('add')]
+		[Event('update')]
+		[Event('cancel')]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
+			import org.puremvc.as3.demos.flex.employeeadmin.model.enum.DeptEnum;
+
+			public static const ADD:String 			= "add";
+			public static const UPDATE:String 		= "update";
+			public static const CANCEL:String 		= "cancel";
+
+			public static const MODE_ADD:String 	= "modeAdd";
+			public static const MODE_EDIT:String 	= "modeEdit";
+			
+			[Bindable] public var user:UserVO;
+			[Bindable] public var mode:String;
+			
+			// submit the add or update
+			private function submit( ):void
+			{
+				user = new UserVO( username.text, 
+					  			   first.text, 
+								   last.text, 
+								   email.text, 
+								   password.text,
+								   department.selectedItem as DeptEnum );
+				
+				if ( user.isValid ) {
+					if ( mode == MODE_ADD ) {
+						dispatchEvent( new Event( ADD ) );
+					} else {
+						dispatchEvent( new Event( UPDATE ) );
+					}
+				}
+				
+			}
+			
+			// cancel the add or update
+			private function cancel( ):void
+			{
+				dispatchEvent( new Event( CANCEL ) );
+			}
+			
+			// enable submit button if required fields are satisfied
+			private function enableSubmit( u:String, p:String, c:String, d:DeptEnum ):Boolean
+			{
+				return ( u != '' && p != '' && p == c && d != DeptEnum.NONE_SELECTED );
+			}
+
+		]]>
+	</mx:Script>
+	
+	<!-- User Profile Form -->
+	<mx:Form xmlns:mx="http://www.adobe.com/2006/mxml"  enabled="{user != null}">
+		
+		<!-- First Name-->
+		<mx:FormItem label="First Name">
+			<mx:TextInput id="first" text="{user.fname}" />
+		</mx:FormItem>
+		
+		<!-- Last Name -->
+		<mx:FormItem label="Last Name">
+			<mx:TextInput id="last" text="{user.lname}"/>
+		</mx:FormItem>
+		
+		<!-- Email -->
+		<mx:FormItem label="Email">
+			<mx:TextInput id="email" text="{user.email}" />
+		</mx:FormItem>
+		
+		<!-- Username -->
+		<mx:FormItem label="Username" required="true">
+			<mx:TextInput id="username" enabled="{mode == MODE_ADD}" 
+				text="{user.username}" />
+		</mx:FormItem>
+		
+		<!-- Password -->
+		<mx:FormItem label="Password" required="true">
+			<mx:TextInput id="password" text="{user.password}" 
+				displayAsPassword="true"  />
+		</mx:FormItem>
+		
+		<!-- Confirm Password -->
+		<mx:FormItem label="Confirm Password" required="true">
+			<mx:TextInput id="confirm" text="{user.password}"  
+				displayAsPassword="true"/>
+		</mx:FormItem>
+
+		<!-- Department Combo -->
+		<mx:FormItem label="Department" required="true">
+			<mx:ComboBox id="department" labelField="value" 
+				selectedIndex="{user.department.ordinal+1}"
+				dataProvider="{ DeptEnum.comboList }"
+				enabled="{user != null}" />
+		</mx:FormItem>
+
+	</mx:Form>
+
+	<!-- User Profile Controls -->
+	<mx:ControlBar horizontalAlign="right">
+		
+		<!-- Update/Add User Button -->
+		<mx:Button id="submitButton" click="submit()" 
+				   label="{ ( mode == MODE_ADD )?'Add User':'Update User' }" 
+				   enabled="{ enableSubmit( username.text, confirm.text, password.text, department.selectedItem as DeptEnum ) }"/>
+		
+		<!-- Cancel Button -->
+		<mx:Button label="Cancel" click="cancel()" 
+				   enabled="{user != null}"/>
+				   
+	</mx:ControlBar>  
+	
+</mx:Panel>
