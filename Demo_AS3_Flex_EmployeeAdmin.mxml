@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 -->
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal"

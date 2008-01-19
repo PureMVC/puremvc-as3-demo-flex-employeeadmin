@@ -1,13 +1,13 @@
 /*
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.flex.employeeadmin.controller
 {
-	import org.puremvc.interfaces.ICommand;
-	import org.puremvc.interfaces.INotification;
-	import org.puremvc.patterns.command.SimpleCommand;
+	import org.puremvc.as3.interfaces.ICommand;
+	import org.puremvc.as3.interfaces.INotification;
+	import org.puremvc.as3.patterns.command.SimpleCommand;
 	
 	import org.puremvc.as3.demos.flex.employeeadmin.model.UserProxy;
 	import org.puremvc.as3.demos.flex.employeeadmin.model.RoleProxy;

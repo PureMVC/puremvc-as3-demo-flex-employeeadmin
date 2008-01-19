@@ -1,14 +1,14 @@
 /*
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.flex.employeeadmin.model
 {
 	import mx.collections.ArrayCollection;
 
-	import org.puremvc.interfaces.IProxy;
-	import org.puremvc.patterns.proxy.Proxy;
+	import org.puremvc.as3.interfaces.IProxy;
+	import org.puremvc.as3.patterns.proxy.Proxy;
 
 	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
 	import org.puremvc.as3.demos.flex.employeeadmin.model.enum.DeptEnum;

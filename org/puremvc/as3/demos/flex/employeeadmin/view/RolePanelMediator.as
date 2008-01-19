@@ -1,6 +1,6 @@
 /*
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.flex.employeeadmin.view
@@ -8,10 +8,10 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 	import flash.events.Event;
 	import mx.collections.ArrayCollection;
 
-	import org.puremvc.interfaces.IMediator;
-	import org.puremvc.interfaces.INotification;
-	import org.puremvc.patterns.mediator.Mediator;
-	import org.puremvc.patterns.observer.Notification;
+	import org.puremvc.as3.interfaces.IMediator;
+	import org.puremvc.as3.interfaces.INotification;
+	import org.puremvc.as3.patterns.mediator.Mediator;
+	import org.puremvc.as3.patterns.observer.Notification;
 
 	import org.puremvc.as3.demos.flex.employeeadmin.ApplicationFacade;
 	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
@@ -28,7 +28,7 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 
 		public function RolePanelMediator( viewComponent:Object )
 		{
-			super( viewComponent );
+			super( NAME, viewComponent );
 			
 			rolePanel.addEventListener( RolePanel.ADD, onAdd );
 			rolePanel.addEventListener( RolePanel.REMOVE, onRemove );
