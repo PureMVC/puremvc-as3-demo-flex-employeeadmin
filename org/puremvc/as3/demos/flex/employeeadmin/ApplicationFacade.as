@@ -41,7 +41,7 @@ package org.puremvc.as3.demos.flex.employeeadmin
 		 */
 		 public function startup(app:Object):void
 		 {
-		 	notifyObservers( new Notification( STARTUP, app ) );	
+		 	sendNotification( STARTUP, app );	
 		 }
 
 		/**
