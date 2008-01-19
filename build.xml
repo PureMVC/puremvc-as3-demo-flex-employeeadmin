@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="PureMVC AS3/Flex Demo - Employee Admin" basedir="." default="compile">
+    <taskdef resource="flexTasks.tasks"/>      
+    <property name="FLEX_HOME" 	   location="C:\flex_2_sdk\"/>  
+    <property name="app.name"	   value="Demo_AS3_Flex_EmployeeAdmin"/>
+    <property name="build.home"    location="${basedir}/bin"/>
+    <property name="src.home"      location="${basedir}"/>
+    <property name="web.home"      location="${basedir}/html-template"/>
+    <property name="lib.home"      location="${basedir}/lib"/>
+	<property name="asset.home"    location="${basedir}/assets"/>
+    
+    <target name="clean">
+            <delete includeemptydirs="true">
+                <fileset dir="${build.home}" includes="**/*"/>
+            </delete>    
+    </target>
+    
+    <target name="prepare">
+    	<mkdir dir="${build.home}"/>
+		<copy todir="${build.home}/assets">
+			<fileset dir="${asset.home}"/>
+		</copy>
+    	<copy todir="${build.home}">
+			<fileset dir="${web.home}"/>
+		</copy>
+    </target>
+    
+    <target name="compile" depends="prepare">
+        <mxmlc 
+            file="${src.home}/Demo_AS3_Flex_EmployeeAdmin.mxml" 
+            output="${build.home}/Demo_AS3_Flex_EmployeeAdmin.swf"
+            actionscript-file-encoding="UTF-8">
+            <!-- Get default compiler options. -->
+            <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>            
+            <!-- List of path elements that form the roots of ActionScript class hierarchies. -->
+            <source-path path-element="${FLEX_HOME}/frameworks"/>
+            <source-path path-element="${src.home}"/>
+            <!-- List of SWC files or directories that contain SWC files. -->
+			<compiler.library-path dir="${basedir}" append="true">
+				<include name="lib"/>
+			</compiler.library-path>
+            <compiler.library-path dir="${FLEX_HOME}/frameworks" append="true">
+                <include name="libs" />
+                <include name="../bundles/{locale}" />
+            </compiler.library-path>
+        </mxmlc>
+    </target>   
+    
+</project>
