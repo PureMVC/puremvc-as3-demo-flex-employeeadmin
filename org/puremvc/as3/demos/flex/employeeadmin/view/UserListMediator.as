@@ -35,11 +35,6 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 			userList.users = userProxy.users;
 		}
 		
-		override public function getMediatorName():String
-		{
-			return NAME;
-		}
-
 		private function get userList():UserList
 		{
 			return viewComponent as UserList;

@@ -34,11 +34,6 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 			userProxy = facade.retrieveProxy( UserProxy.NAME ) as UserProxy;
 		}
 		
-		override public function getMediatorName():String
-		{
-			return NAME;
-		}
-
 		private function get userForm ():UserForm
 		{
 			return viewComponent as UserForm;

@@ -37,11 +37,6 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 				
 		}
 		
-		override public function getMediatorName():String
-		{
-			return NAME;
-		}
-
 		private function get rolePanel():RolePanel
 		{
 			return viewComponent as RolePanel;
