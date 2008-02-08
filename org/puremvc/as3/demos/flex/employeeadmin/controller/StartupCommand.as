@@ -29,7 +29,7 @@ package org.puremvc.as3.demos.flex.employeeadmin.controller
 			facade.registerProxy( new UserProxy() );
 			facade.registerProxy( new RoleProxy() );
 			
-			var app:Demo_AS3_Flex_EmployeeAdmin = note.getBody() as Demo_AS3_Flex_EmployeeAdmin;
+			var app:EmployeeAdmin = note.getBody() as EmployeeAdmin;
 			facade.registerMediator( new UserFormMediator( app.userForm ) );
 			facade.registerMediator( new UserListMediator( app.userList ) );
 			facade.registerMediator( new RolePanelMediator( app.rolePanel ) );
