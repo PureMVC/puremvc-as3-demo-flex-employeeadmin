@@ -30,8 +30,8 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 		{
 			super( NAME, viewComponent );
 			
-			rolePanel.addEventListener( RolePanel.ADD, onAdd );
-			rolePanel.addEventListener( RolePanel.REMOVE, onRemove );
+			rolePanel.addEventListener( RolePanel.ADD, onAddRole );
+			rolePanel.addEventListener( RolePanel.REMOVE, onRemoveRole );
 
 			roleProxy = facade.retrieveProxy( RoleProxy.NAME ) as RoleProxy;
 				
@@ -42,12 +42,12 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 			return viewComponent as RolePanel;
 		}
 		
-		private function onAdd( event:Event ):void
+		private function onAddRole( event:Event ):void
 		{
 			roleProxy.addRoleToUser( rolePanel.user, rolePanel.selectedRole );
 		}
 		
-		private function onRemove( event:Event ):void
+		private function onRemoveRole( event:Event ):void
 		{
 			roleProxy.removeRoleFromUser( rolePanel.user, rolePanel.selectedRole );
 		}
