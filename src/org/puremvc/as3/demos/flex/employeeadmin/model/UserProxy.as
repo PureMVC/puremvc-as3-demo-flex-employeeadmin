@@ -13,7 +13,7 @@ package org.puremvc.as3.demos.flex.employeeadmin.model
 
 	public class UserProxy extends Proxy
 	{
-		public static const NAME:String = 'UserProxy';
+		public static const NAME:String = "UserProxy";
 
 		public function UserProxy( )
 		{

@@ -9,21 +9,21 @@ package org.puremvc.as3.demos.flex.employeeadmin.model.enum
 	[Bindable]
 	public class RoleEnum
 	{
-		public static const NONE_SELECTED:RoleEnum 	= new RoleEnum( '--None Selected--'		,-1 );
-		public static const ADMIN:RoleEnum 			= new RoleEnum( 'Administrator'			, 0 );
-		public static const ACCT_PAY:RoleEnum 		= new RoleEnum( 'Accounts Payable'		, 1 );
-		public static const ACCT_RCV:RoleEnum 		= new RoleEnum( 'Accounts Receivable'	, 2 );
-		public static const EMP_BENEFITS:RoleEnum 	= new RoleEnum( 'Employee Benefits'		, 3 );
-		public static const GEN_LEDGER:RoleEnum 	= new RoleEnum( 'General Ledger'		, 4 );
-		public static const PAYROLL:RoleEnum 		= new RoleEnum( 'Payroll'				, 5 );
-		public static const INVENTORY:RoleEnum 		= new RoleEnum( 'Inventory'				, 6 );
-		public static const PRODUCTION:RoleEnum 	= new RoleEnum( 'Production'			, 7 );
-		public static const QUALITY_CTL:RoleEnum 	= new RoleEnum( 'Quality Control' 		, 8 );
-		public static const SALES:RoleEnum 			= new RoleEnum( 'Sales'					, 9 );
-		public static const ORDERS:RoleEnum 		= new RoleEnum( 'Orders'				,10 );
-		public static const CUSTOMERS:RoleEnum 		= new RoleEnum( 'Customers'				,11 );
-		public static const SHIPPING:RoleEnum 		= new RoleEnum( 'Shipping'				,12 );
-		public static const RETURNS:RoleEnum 		= new RoleEnum( 'Returns'				,13 );
+		public static const NONE_SELECTED:RoleEnum 	= new RoleEnum( "--None Selected--"		,-1 );
+		public static const ADMIN:RoleEnum 			= new RoleEnum( "Administrator"			, 0 );
+		public static const ACCT_PAY:RoleEnum 		= new RoleEnum( "Accounts Payable"		, 1 );
+		public static const ACCT_RCV:RoleEnum 		= new RoleEnum( "Accounts Receivable"	, 2 );
+		public static const EMP_BENEFITS:RoleEnum 	= new RoleEnum( "Employee Benefits"		, 3 );
+		public static const GEN_LEDGER:RoleEnum 	= new RoleEnum( "General Ledger"		, 4 );
+		public static const PAYROLL:RoleEnum 		= new RoleEnum( "Payroll"				, 5 );
+		public static const INVENTORY:RoleEnum 		= new RoleEnum( "Inventory"				, 6 );
+		public static const PRODUCTION:RoleEnum 	= new RoleEnum( "Production"			, 7 );
+		public static const QUALITY_CTL:RoleEnum 	= new RoleEnum( "Quality Control" 		, 8 );
+		public static const SALES:RoleEnum 			= new RoleEnum( "Sales"					, 9 );
+		public static const ORDERS:RoleEnum 		= new RoleEnum( "Orders"				,10 );
+		public static const CUSTOMERS:RoleEnum 		= new RoleEnum( "Customers"				,11 );
+		public static const SHIPPING:RoleEnum 		= new RoleEnum( "Shipping"				,12 );
+		public static const RETURNS:RoleEnum 		= new RoleEnum( "Returns"				,13 );
 		
 		public var ordinal:int;
 		public var value:String;

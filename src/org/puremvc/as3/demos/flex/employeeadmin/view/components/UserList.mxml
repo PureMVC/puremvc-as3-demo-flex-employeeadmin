@@ -9,9 +9,9 @@
 
 	<!-- Events dispatched by this View Component -->
 	<mx:Metadata>
-		[Event('new')]
-		[Event('delete')]
-		[Event('select')]
+		[Event("new")]
+		[Event("delete")]
+		[Event("select")]
 	</mx:Metadata>
 	
 	<mx:Script>
@@ -20,9 +20,9 @@
 			import mx.controls.dataGridClasses.DataGridColumn;
 			import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
 			
-			public static const NEW:String 		= 'new';
-			public static const DELETE:String 	= 'delete';
-			public static const SELECT:String 	= 'select';
+			public static const NEW:String 		= "new";
+			public static const DELETE:String 	= "delete";
+			public static const SELECT:String 	= "select";
 			
 			[Bindable] public var selectedUser:UserVO;
 			[Bindable] public var users:ArrayCollection;

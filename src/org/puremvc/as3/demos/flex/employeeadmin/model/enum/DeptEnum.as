@@ -9,12 +9,12 @@ package org.puremvc.as3.demos.flex.employeeadmin.model.enum
 	[Bindable]
 	public class DeptEnum
 	{
-		public static const NONE_SELECTED:DeptEnum 	= new DeptEnum( '--None Selected--'	,-1 );
-		public static const ACCT:DeptEnum 			= new DeptEnum( 'Accounting'		, 0 );
-		public static const SALES:DeptEnum 			= new DeptEnum( 'Sales'				, 1 );
-		public static const PLANT:DeptEnum 			= new DeptEnum( 'Plant'				, 2 );
-		public static const SHIPPING:DeptEnum 		= new DeptEnum( 'Shipping'			, 3 );
-		public static const QC:DeptEnum 			= new DeptEnum( 'Quality Control'	, 4 );
+		public static const NONE_SELECTED:DeptEnum 	= new DeptEnum( "--None Selected--"	,-1 );
+		public static const ACCT:DeptEnum 			= new DeptEnum( "Accounting"		, 0 );
+		public static const SALES:DeptEnum 			= new DeptEnum( "Sales"				, 1 );
+		public static const PLANT:DeptEnum 			= new DeptEnum( "Plant"				, 2 );
+		public static const SHIPPING:DeptEnum 		= new DeptEnum( "Shipping"			, 3 );
+		public static const QC:DeptEnum 			= new DeptEnum( "Quality Control"	, 4 );
 		
 		public var ordinal:int;
 		public var value:String;

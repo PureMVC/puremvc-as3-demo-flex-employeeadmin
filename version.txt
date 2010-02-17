@@ -11,6 +11,8 @@ Release Date: 2/17/10
 --------------------------------------------------------------------------
 1.4 - PureMVC 2.0.4, 
 	  Added Standard PureMVC demo look and feel.
+	  Changed '' to "" everywhere possible in the source, so that single
+	  quotes don't show up as &apos; in the pretty-printed source.
 	  Updated code according to best practices.
 	  Moved Mediator constructor activities to onRegister.
 	  Made Mediators know less about their view components.

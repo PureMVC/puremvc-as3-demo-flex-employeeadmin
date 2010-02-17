@@ -9,9 +9,9 @@
 	
 	<!-- Events dispatched by this View Component -->
 	<mx:Metadata>
-		[Event('add')]
-		[Event('update')]
-		[Event('cancel')]
+		[Event("add")]
+		[Event("update")]
+		[Event("cancel")]
 	</mx:Metadata>
 	
 	<mx:Script>
@@ -60,12 +60,12 @@
 			public function reset():void
 			{
 				user = null;
-				username.text = '';
-				first.text = '';
-				last.text = '';
-				email.text = ''; 
-				password.text = ''; 
-				confirm.text = ''; 
+				username.text = "";
+				first.text = "";
+				last.text = "";
+				email.text = ""; 
+				password.text = ""; 
+				confirm.text = ""; 
 				department.selectedItem = DeptEnum.NONE_SELECTED;
 			}
 			
@@ -78,7 +78,7 @@
 			// enable submit button if required fields are satisfied
 			private function enableSubmit( u:String, p:String, c:String, d:DeptEnum ):Boolean
 			{
-				return ( u != '' && p != '' && p == c && d != DeptEnum.NONE_SELECTED );
+				return ( u != "" && p != '' && p == c && d != DeptEnum.NONE_SELECTED );
 			}
 
 		]]>

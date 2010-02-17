@@ -16,7 +16,7 @@ package org.puremvc.as3.demos.flex.employeeadmin.model.vo
 			if( username != null ) this.username = username;
 			if( roles != null ) this.roles = new ArrayCollection( roles );
 		} 
-		public var username:String = '';
+		public var username:String = "";
 		public var roles:ArrayCollection = new ArrayCollection();
 		
 	}

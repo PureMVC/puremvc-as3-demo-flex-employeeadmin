@@ -11,7 +11,7 @@
 	backgroundGradientColors="[#325EC0,#FFFFFF]"
 	backgroundColor="#FFFFFF" 
 	themeColor="HaloBlue"
-	creationComplete="facade.startup(this)" >
+	creationComplete="facade.startup(this)" viewSourceURL="srcview/index.html">
 
 	<mx:Script>
 		<![CDATA[

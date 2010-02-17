@@ -25,21 +25,21 @@ package org.puremvc.as3.demos.flex.employeeadmin.model.vo
 			if( password != null ) this.password = password;
 			if( department != null ) this.department = department;
 		}
-		public var username:String = '';
-		public var fname:String = '';
-		public var lname:String = '';
-		public var email:String = '';
-		public var password:String = '';
+		public var username:String = "";
+		public var fname:String = "";
+		public var lname:String = "";
+		public var email:String = "";
+		public var password:String = "";
 		public var department:DeptEnum = DeptEnum.NONE_SELECTED;
 		
 		public function get isValid():Boolean
 		{
-			return username != '' && password != '' && department != DeptEnum.NONE_SELECTED;
+			return username != "" && password != "" && department != DeptEnum.NONE_SELECTED;
 		}
 		
 		public function get givenName():String
 		{
-			return this.lname+', '+this.fname;
+			return this.lname+", "+this.fname;
 		}
 		
 	}

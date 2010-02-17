@@ -14,7 +14,7 @@ package org.puremvc.as3.demos.flex.employeeadmin.model
 
 	public class RoleProxy extends Proxy
 	{
-		public static const NAME:String = 'RoleProxy';
+		public static const NAME:String = "RoleProxy";
 
 		public function RoleProxy( )
 		{
@@ -99,7 +99,7 @@ package org.puremvc.as3.demos.flex.employeeadmin.model
 			}
 		}
 
-		// get a user's roles
+		// get a users roles
 		public function getUserRoles( username:String ):ArrayCollection
 		{
 			var userRoles:ArrayCollection = new ArrayCollection();

@@ -17,7 +17,7 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 	{
 		private var userProxy:UserProxy;
 
-		public static const NAME:String = 'UserListMediator';
+		public static const NAME:String = "UserListMediator";
 
 		public function UserListMediator( viewComponent:UserList )
 		{

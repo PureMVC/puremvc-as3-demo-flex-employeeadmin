@@ -21,7 +21,7 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 	{
 		private var roleProxy:RoleProxy;		
 		
-		public static const NAME:String = 'RolePanelMediator';
+		public static const NAME:String = "RolePanelMediator";
 
 		public function RolePanelMediator( viewComponent:RolePanel )
 		{

@@ -9,8 +9,8 @@
 
 	<!-- Events dispatched by this View Component -->
 	<mx:Metadata>
-		[Event('add')]
-		[Event('remove')]
+		[Event("add")]
+		[Event("remove")]
 	</mx:Metadata>
 	
 	<mx:Script>
@@ -19,8 +19,8 @@
 			import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
 			import org.puremvc.as3.demos.flex.employeeadmin.model.enum.RoleEnum;
 
-			public static const ADD:String = 'add';
-			public static const REMOVE:String = 'remove';
+			public static const ADD:String = "add";
+			public static const REMOVE:String = "remove";
 
 			[Bindable] public var user:UserVO;
 			[Bindable] public var selectedRole:RoleEnum;
