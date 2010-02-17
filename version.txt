@@ -1,6 +1,6 @@
 PureMVC AS3 Demo - Flex Employee Admin 
 By Clifford Hall <clifford.hall@puremvc.org>
-Copyright(c) 2007-08 Clifford Hall, Some rights reserved.
+Copyright(c) 2007-10 Clifford Hall, Some rights reserved.
 --------------------------------------------------------------------------
 Release Date: 2/17/10
     Platform: ActionScript 3 / Flex  
