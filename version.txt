@@ -16,6 +16,7 @@ Release Date: 2/17/10
 	  Made Mediators know less about their view components.
 	  Exposed methods on view components to encapsulate functionality where 
 	  mediators were too intrusive.
+	  Made Mediator constructors expect the specific of component they mediate (instead of Object)
 	  Made StartupCommand a MacroCommand
 	  Added PrepModelCommand and PrepViewCommand. 
 	  Moved population of dummy data from Proxy constructors into PrepModelCommand
