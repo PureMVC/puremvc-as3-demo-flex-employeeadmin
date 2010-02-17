@@ -1,38 +1,25 @@
 /*
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-10 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.flex.employeeadmin.controller
 {
-	import org.puremvc.as3.interfaces.ICommand;
-	import org.puremvc.as3.interfaces.INotification;
-	import org.puremvc.as3.patterns.command.SimpleCommand;
-	
-	import org.puremvc.as3.demos.flex.employeeadmin.model.UserProxy;
-	import org.puremvc.as3.demos.flex.employeeadmin.model.RoleProxy;
-	import org.puremvc.as3.demos.flex.employeeadmin.ApplicationFacade;
-	import org.puremvc.as3.demos.flex.employeeadmin.view.UserFormMediator;
-	import org.puremvc.as3.demos.flex.employeeadmin.view.UserListMediator;
-	import org.puremvc.as3.demos.flex.employeeadmin.view.RolePanelMediator;
+	import org.puremvc.as3.patterns.command.MacroCommand;
 
-	public class StartupCommand extends SimpleCommand implements ICommand
+	public class StartupCommand extends MacroCommand
 	{
 		/**
-		 * Register the Proxies and Mediators.
+		 * Add the Subcommands to startup the PureMVC apparatus.
 		 * 
-		 * Get the View Components for the Mediators from the app,
-		 * which passed a reference to itself on the notification.
+		 * Generally, it is best to prep the Model (mostly registering 
+		 * proxies)followed by preparation of the View (mostly registering 
+		 * Mediators).
 		 */
-		override public function execute( note:INotification ) : void	
+		override protected function initializeMacroCommand():void	
 		{
-			facade.registerProxy( new UserProxy() );
-			facade.registerProxy( new RoleProxy() );
-			
-			var app:EmployeeAdmin = note.getBody() as EmployeeAdmin;
-			facade.registerMediator( new UserFormMediator( app.userForm ) );
-			facade.registerMediator( new UserListMediator( app.userList ) );
-			facade.registerMediator( new RolePanelMediator( app.rolePanel ) );
+			this.addSubCommand( PrepModelCommand );
+			this.addSubCommand( PrepViewCommand );
 		}
 	}
 }

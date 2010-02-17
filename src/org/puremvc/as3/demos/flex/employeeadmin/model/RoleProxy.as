@@ -1,41 +1,24 @@
 /*
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-10 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.flex.employeeadmin.model
 {
 	import mx.collections.ArrayCollection;
-
-	import org.puremvc.as3.interfaces.IProxy;
-	import org.puremvc.as3.patterns.proxy.Proxy;
-	import org.puremvc.as3.patterns.observer.Notification;
-
-	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.RoleVO;
-	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
-	import org.puremvc.as3.demos.flex.employeeadmin.model.enum.RoleEnum;
+	
 	import org.puremvc.as3.demos.flex.employeeadmin.ApplicationFacade;
+	import org.puremvc.as3.demos.flex.employeeadmin.model.enum.RoleEnum;
+	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
+	import org.puremvc.as3.patterns.proxy.Proxy;
 
-	public class RoleProxy extends Proxy implements IProxy
+	public class RoleProxy extends Proxy
 	{
 		public static const NAME:String = 'RoleProxy';
 
 		public function RoleProxy( )
 		{
 			super( NAME, new ArrayCollection );
-			
-			// generate some test data 
-			addItem( new RoleVO( 'lstooge', [ RoleEnum.PAYROLL,
-											  RoleEnum.EMP_BENEFITS ] ) );
-											       
-			addItem( new RoleVO( 'cstooge', [ RoleEnum.ACCT_PAY,
-											  RoleEnum.ACCT_RCV,
-											  RoleEnum.GEN_LEDGER ] ) );
-											       
-			addItem( new RoleVO( 'mstooge', [ RoleEnum.INVENTORY,
-											  RoleEnum.PRODUCTION,
-											  RoleEnum.SALES,
-											  RoleEnum.SHIPPING ] ) );
 		}
 		
 		// get the data property cast to the appropriate type

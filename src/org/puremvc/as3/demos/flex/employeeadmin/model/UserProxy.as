@@ -1,30 +1,23 @@
 /*
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-10 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.flex.employeeadmin.model
 {
 	import mx.collections.ArrayCollection;
-
-	import org.puremvc.as3.interfaces.IProxy;
+	
+	import org.puremvc.as3.demos.flex.employeeadmin.model.enum.DeptEnum;
+	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
 	import org.puremvc.as3.patterns.proxy.Proxy;
 
-	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
-	import org.puremvc.as3.demos.flex.employeeadmin.model.enum.DeptEnum;
-
-	public class UserProxy extends Proxy implements IProxy
+	public class UserProxy extends Proxy
 	{
 		public static const NAME:String = 'UserProxy';
 
 		public function UserProxy( )
 		{
 			super( NAME, new ArrayCollection );
-
-			// generate some test data			
-			addItem( new UserVO('lstooge','Larry', 'Stooge', "larry@stooges.com", 'ijk456',DeptEnum.ACCT) );
-			addItem( new UserVO('cstooge','Curly', 'Stooge', "curly@stooges.com", 'xyz987',DeptEnum.SALES) );
-			addItem( new UserVO('mstooge','Moe', 'Stooge', "moe@stooges.com", 'abc123',DeptEnum.PLANT) );
 		}
 
 		// return data property cast to proper type

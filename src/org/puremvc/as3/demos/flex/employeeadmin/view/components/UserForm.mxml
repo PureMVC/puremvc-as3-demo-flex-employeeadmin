@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-10 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 -->
 <mx:Panel title="User Profile" status="{user.username}"
@@ -37,7 +37,8 @@
 								   last.text, 
 								   email.text, 
 								   password.text,
-								   department.selectedItem as DeptEnum );
+								   DeptEnum( department.selectedItem )
+								 );
 				
 				if ( user.isValid ) {
 					if ( mode == MODE_ADD ) {
@@ -47,6 +48,25 @@
 					}
 				}
 				
+			}
+			
+			public function setUser( user:UserVO, mode:String ):void
+			{
+				this.user = user;
+				this.mode = mode;
+				first.setFocus();
+			}
+			
+			public function reset():void
+			{
+				user = null;
+				username.text = '';
+				first.text = '';
+				last.text = '';
+				email.text = ''; 
+				password.text = ''; 
+				confirm.text = ''; 
+				department.selectedItem = DeptEnum.NONE_SELECTED;
 			}
 			
 			// cancel the add or update
@@ -115,7 +135,7 @@
 		
 		<!-- Update/Add User Button -->
 		<mx:Button id="submitButton" click="submit()" 
-				   label="{ ( mode == MODE_ADD )?'Add User':'Update User' }" 
+				   label="{ ( mode == MODE_ADD )?'Add User':'Update Profile' }" 
 				   enabled="{ enableSubmit( username.text, confirm.text, password.text, department.selectedItem as DeptEnum ) }"/>
 		
 		<!-- Cancel Button -->

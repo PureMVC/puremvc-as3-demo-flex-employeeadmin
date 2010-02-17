@@ -1,16 +1,14 @@
 /*
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-10 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.flex.employeeadmin
 {
-	import org.puremvc.as3.interfaces.IFacade;
-	import org.puremvc.as3.patterns.facade.Facade;
-	import org.puremvc.as3.patterns.observer.Notification;
 	import org.puremvc.as3.demos.flex.employeeadmin.controller.*;
+	import org.puremvc.as3.patterns.facade.Facade;
 	
-	public class ApplicationFacade extends Facade implements IFacade
+	public class ApplicationFacade extends Facade
 	{
 		// Notification name constants
 		public static const STARTUP:String 			= "startup";
@@ -19,6 +17,7 @@ package org.puremvc.as3.demos.flex.employeeadmin
 		public static const DELETE_USER:String 		= "deleteUser";
 		public static const CANCEL_SELECTED:String	= "cancelSelected";
 		
+		public static const POPULATE_USERS:String	= "populateUsers";
 		public static const USER_SELECTED:String	= "userSelected";
 		public static const USER_ADDED:String		= "userAdded";
 		public static const USER_UPDATED:String		= "userUpdated";
@@ -29,17 +28,17 @@ package org.puremvc.as3.demos.flex.employeeadmin
 		
 		
 		/**
-		 * Singleton ApplicationFacade Factory Method
+		 * Singleton Factory Method
 		 */
 		public static function getInstance() : ApplicationFacade {
 			if ( instance == null ) instance = new ApplicationFacade( );
-			return instance as ApplicationFacade;
+			return ApplicationFacade( instance ) ;
 		}
 		
 		/**
 		 * Start the application
 		 */
-		 public function startup(app:Object):void
+		 public function startup( app:EmployeeAdmin ):void
 		 {
 		 	sendNotification( STARTUP, app );	
 		 }

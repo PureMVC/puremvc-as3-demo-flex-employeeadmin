@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-10 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
 -->
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="horizontal"
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
 	xmlns:view="org.puremvc.as3.demos.flex.employeeadmin.view.components.*"
+	layout="horizontal" horizontalAlign="center" verticalAlign="middle"
+	pageTitle="PureMVC Flex Demo: EmployeeAdmin"
+	backgroundGradientColors="[#325EC0,#FFFFFF]"
+	backgroundColor="#FFFFFF" 
+	themeColor="HaloBlue"
 	creationComplete="facade.startup(this)" >
 
 	<mx:Script>
@@ -14,6 +19,11 @@
 			private var facade:ApplicationFacade = ApplicationFacade.getInstance();
 		]]>
 	</mx:Script>
+	
+	<mx:ApplicationControlBar verticalAlign="middle" backgroundColor="#FFFFFF" dock="true">
+		<mx:Text text="Employee Admin" fontFamily="Verdana" fontSize="22" fontStyle="normal" color="#0559CC"/>
+		<mx:Label fontWeight="bold" text="PureMVC AS3 / Flex Demo"/>
+	</mx:ApplicationControlBar>
 	
 	<!-- User Management Interface -->
 	<mx:VBox>

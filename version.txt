@@ -2,14 +2,34 @@ PureMVC AS3 Demo - Flex Employee Admin
 By Clifford Hall <clifford.hall@puremvc.org>
 Copyright(c) 2007-08 Clifford Hall, Some rights reserved.
 --------------------------------------------------------------------------
-Release Date: 3/8/08
-    Platform: ActionScript 3  
+Release Date: 2/17/10
+    Platform: ActionScript 3 / Flex  
      Version: 1 
-    Revision: 3
+    Revision: 4
       Author: Clifford Hall <clifford.hall@puremvc.org>
      License: Creative Commons Attribution 3.0 United States License
 --------------------------------------------------------------------------
+1.4 - PureMVC 2.0.4, 
+	  Added Standard PureMVC demo look and feel.
+	  Updated code according to best practices.
+	  Moved Mediator constructor activities to onRegister.
+	  Made Mediators know less about their view components.
+	  Exposed methods on view components to encapsulate functionality where 
+	  mediators were too intrusive.
+	  Made StartupCommand a MacroCommand
+	  Added PrepModelCommand and PrepViewCommand. 
+	  Moved population of dummy data from Proxy constructors into PrepModelCommand
+	  Removed unneeded 'implements' from classes where the interface is inherited.
+	  Changed casts of retrieved actors from 'myObject as MyObject' to 'MyObject( myObject )' style,
+	  which is better for debugging since it causes a runtime error at the cast rather than returning 
+	  null and later causing problems. Note that it was left as 'myObject as MyObject' in the getters
+	  for the view components of mediators and data objects of Proxies, which are ok to be null until
+	  populated.
+	  
 1.3 - PureMVC 2.0.1
+
 1.2 - Migrated to PureMVC 2.0
+
 1.1 - Refactored to new package structure and implemented 'startup method on facade' idiom
+
 1.0 - Extracted from 'Architecture 101' course ware and posted as a demo

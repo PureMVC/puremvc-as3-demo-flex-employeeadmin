@@ -1,37 +1,36 @@
 /*
  PureMVC AS3 Demo - Flex Employee Admin 
- Copyright (c) 2007-08 Clifford Hall <clifford.hall@puremvc.org>
+ Copyright (c) 2007-10 Clifford Hall <clifford.hall@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.flex.employeeadmin.view
 {
 	import flash.events.Event;
-
-	import org.puremvc.as3.interfaces.IMediator;
+	import org.puremvc.as3.demos.flex.employeeadmin.ApplicationFacade;
+	import org.puremvc.as3.demos.flex.employeeadmin.model.UserProxy;
+	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
+	import org.puremvc.as3.demos.flex.employeeadmin.view.components.UserList;
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.mediator.Mediator;
-	import org.puremvc.as3.patterns.observer.Notification;
 
-	import org.puremvc.as3.demos.flex.employeeadmin.ApplicationFacade;
-	import org.puremvc.as3.demos.flex.employeeadmin.model.vo.UserVO;
-	import org.puremvc.as3.demos.flex.employeeadmin.model.UserProxy;
-	import org.puremvc.as3.demos.flex.employeeadmin.view.components.UserList;
-
-	public class UserListMediator extends Mediator implements IMediator
+	public class UserListMediator extends Mediator
 	{
 		private var userProxy:UserProxy;
 
 		public static const NAME:String = 'UserListMediator';
 
-		public function UserListMediator( viewComponent:Object )
+		public function UserListMediator( viewComponent:UserList )
 		{
 			super( NAME, viewComponent );
-			
+		}
+		
+		override public function onRegister():void
+		{
 			userList.addEventListener( UserList.NEW, 	onNew );
 			userList.addEventListener( UserList.DELETE, onDelete);
 			userList.addEventListener( UserList.SELECT, onSelect );
 
-			userProxy = facade.retrieveProxy( UserProxy.NAME ) as UserProxy;
+			userProxy = UserProxy( facade.retrieveProxy( UserProxy.NAME ) );
 			userList.users = userProxy.users;
 		}
 		
@@ -40,24 +39,6 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 			return viewComponent as UserList;
 		}
 		
-		private function onNew( event:Event ):void
-		{
-			var user:UserVO = new UserVO();
-			sendNotification( ApplicationFacade.NEW_USER, user );
-		}
-		
-		private function onDelete( event:Event ):void
-		{
-			sendNotification( ApplicationFacade.DELETE_USER,
-							  userList.selectedUser );
-		}
-		
-		private function onSelect( event:Event ):void
-		{
-			sendNotification( ApplicationFacade.USER_SELECTED,
-							  userList.selectedUser );
-		}
-
 		override public function listNotificationInterests():Array
 		{
 			return [
@@ -81,5 +62,23 @@ package org.puremvc.as3.demos.flex.employeeadmin.view
 			}
 		}
 		
+		private function onNew( event:Event ):void
+		{
+			sendNotification( ApplicationFacade.NEW_USER, 
+							  new UserVO() );
+		}
+		
+		private function onDelete( event:Event ):void
+		{
+			sendNotification( ApplicationFacade.DELETE_USER,
+							  userList.selectedUser );
+		}
+		
+		private function onSelect( event:Event ):void
+		{
+			sendNotification( ApplicationFacade.USER_SELECTED,
+							  userList.selectedUser );
+		}
+
 	}
 }
